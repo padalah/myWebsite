@@ -1,4 +1,4 @@
-iimport { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { projects } from "@/lib/data";
 import ProjectCard from "@/components/ProjectCard";
