@@ -1,0 +1,45 @@
+Overview
+This project investigates the influence of political ideology on consumer purchasing decisions. Specifically, it examines whether highlighting a product's country of origin, in this case, labeling a "Trump 2024" flag as "Made in China," affects its sales performance. The study aims to determine if such labeling impacts the likelihood of sale and the final selling price.​
+
+Methodology
+A 2x2 factorial experimental design was employed over a two-month period on eBay. The factors considered were:​
+
+Treatment Variable: Presence or absence of the "Made in China" label in the product title.​
+
+Auction Duration: Listings were set for either 1-day or 3-day auctions.​
+
+Each listing started at a price of $2.99. At any given time, two identical flags were listed simultaneously—one with the treatment condition and one as a control—to ensure comparability. Data collected included whether the flag sold, the final selling price, and the number of views each listing received.​
+ResearchGate
+
+Results
+Sales Likelihood: The treatment group (flags labeled "Made in China") experienced a 24.6% decrease in sales probability compared to the control group. This effect was statistically significant, with a 95% confidence interval of [-0.444, -0.048].​
+
+Selling Price: The final selling prices were generally lower for the treatment group. Due to non-normal distribution of prices, a Wilcoxon Rank Sum test was conducted, yielding a p-value of 0.0306, indicating statistical significance.​
+UNIMAS Institutional Repository
++1
+Perbanas Journal
++1
+
+Buyer Analysis: Most purchases were made by unique buyers, suggesting minimal influence from repeat customers on the results.​
+
+Discussions
+The findings suggest that political ideology can significantly influence consumer behavior, particularly when product attributes conflict with ideological beliefs. Labeling a politically charged product as "Made in China" negatively impacted both its likelihood of sale and its selling price. The robustness of the results is supported by the experimental design, which controlled for variables such as auction duration and ensured simultaneous listing of treatment and control items.​
+Rady School of Management
+
+Challenges
+Platform Algorithm Transparency: The eBay algorithm's lack of transparency may have introduced unobserved confounding variables affecting listing visibility and sales.​
+
+Sample Size: The relatively small sample size limits the generalizability of the findings and may affect the statistical power of the analysis.​
+
+Data Distribution: Non-normal distribution of selling prices necessitated non-parametric testing methods, which may have limitations in interpretability.​
+
+Future Work
+Expanded Sample Size: Conducting the experiment with a larger number of listings to enhance the reliability and generalizability of the findings.​
+
+Diverse Product Categories: Exploring the effect across various products with different political associations to assess the consistency of the observed behavior.​
+Perbanas Journal
+
+Longitudinal Studies: Implementing longer-term studies to observe if the effects persist over time and under varying market conditions.​
+
+Platform Collaboration: Working with e-commerce platforms to gain insights into algorithmic influences on listing visibility and sales outcomes.​
+

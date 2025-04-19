@@ -1,0 +1,63 @@
+Overview
+This project investigates catastrophic forgetting in text-to-text transformer models during domain adaptation for question answering (QA) tasks. Specifically, it examines how fine-tuning a pre-trained model like UnifiedQA on domain-specific datasets (BioASQ and SciQ) affects its performance on the original source domain. The study also explores the effectiveness of regularization techniques, such as L2 regularization and Elastic Weight Consolidation (EWC), in mitigating performance degradation.​
+
+Methodology
+Model and Baseline
+UnifiedQA: A pre-trained QA model developed by AllenAI, trained on eight diverse QA datasets encompassing various question types.​
+
+Baseline Evaluation: Assessed UnifiedQA's performance on its source validation dataset to establish a reference point before fine-tuning.​
+
+Fine-Tuning Process
+Datasets:
+
+BioASQ: Comprises 3,743 biomedical questions categorized into four types: abstractive (~25%), extractive (~20%), list (~25%), and yes/no (~30%).​
+
+SciQ: Contains 13,679 multiple-choice science questions, each accompanied by a supporting paragraph to aid in answer selection.​
+
+Training Configuration:
+
+Split each dataset into 80% training and 20% validation sets.​
+
+Fine-tuned the model for 5 epochs using TensorFlow.​
+
+Set input length to 512 tokens and target length to 128 tokens.​
+
+Regularization Techniques
+L2 Regularization: Applies a penalty proportional to the square of the magnitude of model weights to prevent overfitting.​
+
+Elastic Weight Consolidation (EWC): Introduces a penalty based on the importance of each weight, aiming to preserve knowledge from the source domain during fine-tuning.​
+
+Results
+Baseline Performance: UnifiedQA achieved a String Similarity score of 58.24 on the RACE dataset without any fine-tuning.​
+
+Post Fine-Tuning:
+
+Fine-tuning with BioASQ reduced the RACE score to 53.71, indicating catastrophic forgetting.​
+
+Applying EWC during BioASQ fine-tuning improved the RACE score to 58.59, surpassing the original baseline.​
+
+SciQ Observations:
+
+Fine-tuning with SciQ led to significant forgetting, but the model performed exceptionally well on SciQ's validation set.​
+
+Regularization techniques had limited impact on mitigating forgetting in this case.​
+
+Discussions
+The study confirms that fine-tuning on domain-specific datasets can lead to catastrophic forgetting in QA models. EWC proved effective in preserving source domain performance when fine-tuning with BioASQ. However, its efficacy diminished with SciQ, possibly due to the dataset's size and structure, which may have caused the model to overfit. The combination of EWC and L2 regularization did not yield additional benefits over individual methods.​
+
+Challenges
+Dataset Variability: Differences in question types and formats between source and target datasets complicated the fine-tuning process.​
+
+Overfitting Risks: The model's strong performance on SciQ suggests potential overfitting, reducing its generalizability.​
+
+Regularization Limitations: While EWC was beneficial for BioASQ, its limited impact on SciQ highlights the need for more robust forgetting mitigation strategies.​
+
+Future Work
+Enhanced Regularization: Explore advanced techniques beyond EWC and L2 to better address catastrophic forgetting.​
+
+Dataset Expansion: Incorporate a broader range of domain-specific datasets to assess the model's adaptability and resilience.​
+
+Model Architecture Analysis: Investigate how different transformer architectures respond to domain adaptation and forgetting.​
+
+Longitudinal Studies: Conduct extended evaluations to understand the long-term effects of fine-tuning and regularization on model performance.​
+

@@ -1,0 +1,51 @@
+Overview
+This project aimed to develop a deep learning model that automatically segments pulmonary nodules from lung CT scans. Pulmonary nodules are early indicators of lung cancer, and accurate detection is critical for timely diagnosis. The goal was to create a reliable tool that assists radiologists by highlighting regions of interest in complex medical imagery.
+
+📷 [Include original homepage image of the nodule segmentation project here]
+
+Methodology
+Dataset: Utilized the LUNA16 dataset, containing 888 CT scans and 1,186 nodule annotations.
+
+Preprocessing:
+
+Lung segmentation was performed to extract the region of interest from the full CT scans.
+
+Nodule masks were created by mapping annotated coordinates to corresponding voxel spaces.
+
+Model: A U-Net convolutional neural network was chosen for pixel-level semantic segmentation.
+
+Training:
+
+Model was trained using TensorFlow Cloud on Google AI Platform.
+
+Training and validation datasets were split from the processed CT scans.
+
+📷 [Include the image showing CT scan with segmented lung region and sample nodule mask]
+
+Results
+Performance:
+
+Dice coefficient of 0.799 on the training set.
+
+Dice coefficient of 0.690 on the validation set.
+
+The model produced visual segmentations that closely aligned with expert-annotated nodules.
+
+📷 [Include the side-by-side image of input CT scan, predicted segmentation, and ground truth]
+
+Discussion
+The use of a U-Net architecture enabled the model to effectively capture and segment small nodules, even in large and noisy CT scans. The model showed strong learning capacity but experienced some performance drop on unseen data, pointing to mild overfitting. The output visualizations suggest it can serve as a supportive tool in radiology pipelines.
+
+Challenges
+Large Dataset Size: CT data (~115 GB) required cloud-based training and efficient memory management.
+
+Annotation Mapping: Translating 3D coordinates into 2D segmentation masks required precise interpolation.
+
+Overfitting: The performance gap between training and validation metrics highlighted the need for better generalization.
+
+Future Work
+Integrate advanced augmentation techniques and dropout layers to enhance generalization.
+
+Expand the dataset to include a wider variety of lung pathologies for improved robustness.
+
+Explore real-time inference and clinical deployment options with interpretability features.

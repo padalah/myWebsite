@@ -1,0 +1,57 @@
+Overview
+The project aims to predict whether a flight will be delayed by more than 15 minutes, utilizing data available two hours prior to departure. By integrating historical flight and weather data, the goal is to develop a predictive model that can assist stakeholders in anticipating and managing flight delays.
+
+Methodology
+Data Collection and Preprocessing
+Flight Data: Sourced from the U.S. Department of Transportation, encompassing data from 2015 to 2019, including 371 origin airports, 369 destination airports, 19 airlines, and 7,894 unique tail numbers.​
+
+Weather Data: Obtained from the National Oceanic and Atmospheric Administration (NOAA), focusing on conditions such as thunderstorms, ice, snow, and fog.​
+
+Data Cleaning: Involved removing duplicates, handling missing values, converting times to UTC, and filtering for flights within the continental U.S.​
+
+Feature Engineering
+Weather Features: One-hot encoding of adverse weather conditions at 2 and 4 hours before departure, retaining the most severe condition in each time window.​
+
+Flight Features:
+
+Origin-Destination (O-D) Pairs: Identification of unique route combinations.​
+
+PageRank: Assessment of airport importance within the network.​
+
+Delay Graph: Construction of a graph with airports as nodes and median delays as edge weights, capturing outbound and inbound delays.​
+
+Delay States: Clustering of network-wide delay patterns using K-means to define delay states at 2 and 4 hours before departure.​
+
+Flight Chain Features: Analysis of an aircraft's previous five flights to assess cumulative delay impact.​
+
+Data Integration
+The cleaned and engineered flight and weather datasets were merged to form a comprehensive dataset for modeling.​
+
+Results
+Model Development
+Model Architecture: A stacked model comprising a weighted Random Forest Classifier and a Logistic Regression model.​
+
+Feature Selection:
+
+Categorical Variables: Selected using decision trees.​
+
+Continuous Variables: Reduced dimensionality using Principal Component Analysis (PCA), retaining 13 components explaining over 95% of variance.​
+
+Model Optimization: Implemented a custom time-series aware cross-validation to preserve temporal dependencies during hyperparameter tuning.​
+
+Discussions
+The integration of network-based features, such as delay graphs and flight chains, significantly enhanced the model's predictive capabilities. The use of PCA facilitated the identification of key continuous variables, while the custom cross-validation approach ensured the model's robustness over time.​
+
+Challenges
+Data Quality: Ensuring the accuracy and consistency of flight and weather data, particularly in handling missing or inconsistent entries.​
+
+Temporal Dependencies: Standard cross-validation techniques were inadequate for time-series data, necessitating the development of a custom validation approach.​
+
+Feature Complexity: Engineering features that accurately capture the dynamic nature of flight delays without introducing multicollinearity.​
+
+Future Work
+Real-Time Implementation: Transitioning the model to operate in real-time environments for proactive delay management.​
+
+Expanded Feature Set: Incorporating additional variables such as air traffic control data, maintenance schedules, and passenger load factors.​
+
+Model Generalization: Testing the model's applicability across different regions and time frames to assess its generalizability.

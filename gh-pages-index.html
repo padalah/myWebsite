@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Susmita Padala | Portfolio</title>
+    <meta name="description" content="Program Manager at Microsoft. Studying Information and Data Science at UC Berkeley. Building inclusive user experiences." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- This file will be used for GitHub Pages deployment -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- GitHub Pages specific path adjustment -->
+    <script>
+      // Note: This script helps with GitHub Pages path issues
+      // If running locally, this is unnecessary
+      (function() {
+        const ghPagesBase = '/myWebsite';
+        
+        // Detect if we're on GitHub Pages
+        if (window.location.hostname === 'padalah.github.io') {
+          // If the URL doesn't include the base path, add it and redirect
+          if (!window.location.pathname.startsWith(ghPagesBase)) {
+            window.location.href = ghPagesBase + window.location.pathname;
+          }
+        }
+      })();
+    </script>
+    <script type="module" src="./assets/index.js"></script>
+  </body>
+</html>

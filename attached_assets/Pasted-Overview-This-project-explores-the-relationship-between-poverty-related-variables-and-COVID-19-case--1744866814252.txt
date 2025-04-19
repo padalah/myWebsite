@@ -1,0 +1,121 @@
+Overview
+This project explores the relationship between poverty-related variables and COVID-19 case rates across U.S. states. The analysis aims to understand how socioeconomic factors—such as poverty, homelessness, unemployment—and policy decisions like mask mandates and Medicaid spending correlate with the spread of COVID-19. By developing regression models based on publicly available state-level data, the project provides insights into the systemic disparities influencing pandemic outcomes.
+
+Methodology
+Data Collection
+Data were aggregated from multiple public sources and included the following state-level indicators:
+
+Socioeconomic Variables:
+
+Poverty rate (% below the poverty line)
+
+Unemployment rate (2018)
+
+Median household income
+
+Total number of homeless individuals (2019)
+
+Health and Risk Variables:
+
+Percentage of individuals at risk for severe COVID-19
+
+Log of non-elderly adults with pre-existing conditions
+
+Medicaid spending as a % of total state expenditure
+
+Life expectancy at birth
+
+Policy and Demographic Variables:
+
+Population density (people per square mile)
+
+Presence of a mask mandate
+
+Start date of public mask mandates
+
+Preprocessing and Transformation
+A correlation matrix was constructed to identify multicollinearity. Life expectancy was found to be highly correlated with other predictors (e.g., poverty and pre-existing conditions) and was excluded from modeling to reduce redundancy.
+
+Log transformations were applied to skewed variables such as population density, number of homeless individuals, and pre-existing conditions to normalize their distributions.
+
+Three linear regression models were built to incrementally add predictors and measure changes in explanatory power.
+
+Results
+Three linear regression models were created to examine the relationship between poverty and COVID-19 case rates, progressively increasing in complexity and number of predictors:
+
+Model 1: Simple Linear Regression
+Formula: lm(formula = caseRate ~ povertyLine)
+
+Description: Explores the direct relationship between the poverty rate and COVID-19 case rate across states.
+
+Results:
+
+Adjusted R²: 0.07
+
+Poverty rate was statistically significant (p-value: 0.037), showing a modest but meaningful positive correlation with case rates.
+
+Model 2: Multiple Regression with Key Socioeconomic Factors
+Formula:
+lm(formula = caseRate ~ povertyLine + logPopDensity + percentUnemployed + logNumHomeless)
+
+Description: Adds population density, unemployment, and homelessness as predictors.
+
+Results:
+
+Adjusted R²: 0.09
+
+Poverty remained significant (p-value: 0.007).
+
+Interestingly, unemployment rate showed a negative correlation with case rate, suggesting potential reduced exposure among unemployed individuals.
+
+Model 3: Comprehensive Socioeconomic and Policy Model
+Formula:
+
+R
+Copy
+Edit
+lm(formula = caseRate ~ povertyLine + maskMandate + logPopDensity + 
+    logPreExistingCondtions + percentAtRisk + logNumHomeless + 
+    medicaidSpending + percentUnemployed + medianIncome, 
+    data = covid_19TData)
+Description: Incorporates all previously considered variables, plus mask mandates, healthcare risk factors, Medicaid spending, and income.
+
+Results:
+
+Adjusted R²: 0.40
+
+Poverty remained a strong predictor (p-value: 0.001).
+
+Mask mandates and higher Medicaid spending were associated with lower case rates.
+
+The model revealed that a broad range of factors jointly contribute to COVID-19 case rate disparities across states.
+
+Discussions
+The regression results support the hypothesis that poverty plays a significant role in determining COVID-19 case rates. The strength of this relationship persisted across all models, even after adjusting for confounding variables.
+
+The final model highlights that:
+
+States with stronger public health infrastructure (e.g., mask mandates, Medicaid spending) tended to have lower case rates.
+
+Higher unemployment rates, surprisingly, were negatively correlated with case rates—possibly reflecting reduced social interaction among the unemployed.
+
+The substantial improvement in model fit (from 0.07 to 0.40 in adjusted R²) suggests that pandemic outcomes are influenced by a complex interplay of economic, social, and policy factors.
+
+Challenges
+Data Inconsistency: Variables were collected from different years (e.g., 2018 unemployment vs. 2020 COVID data), which may introduce temporal mismatches.
+
+Multicollinearity: Strong correlations between variables such as life expectancy, poverty, and health risks limited the number of predictors that could be included simultaneously.
+
+Causal Inference: As a correlational study, it cannot definitively establish causality between predictors and case rates.
+
+Sample Size: With only 50 U.S. states as data points, statistical power and model generalizability are limited.
+
+Future Work
+Time-Series Analysis: Extend the study to include longitudinal data to observe how these relationships evolve throughout the pandemic.
+
+Granular Analysis: Drill down to the county or city level to capture local dynamics that state-level analysis may overlook.
+
+Policy Effectiveness Studies: Assess which specific interventions (e.g., mask mandates, Medicaid expansion) had the most impact on mitigating spread.
+
+Machine Learning Approaches: Use ensemble or nonlinear models to detect interactions and complex dependencies between variables.
+

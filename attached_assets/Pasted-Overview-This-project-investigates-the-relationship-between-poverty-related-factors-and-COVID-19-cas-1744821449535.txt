@@ -1,0 +1,81 @@
+Overview
+This project investigates the relationship between poverty-related factors and COVID-19 case rates across U.S. states. The primary objective is to determine how variables such as poverty levels, unemployment rates, homelessness, and state policies (e.g., mask mandates, Medicaid spending) influence the spread of COVID-19.​
+
+Methodology
+Data Collection
+Data were compiled from various reputable sources, focusing on state-level metrics:​
+
+Population Density: Individuals per square mile.​
+
+Unemployment Rate (2018): Percentage of unemployed individuals.​
+
+Homelessness (2019): Total number of homeless individuals.​
+
+Median Household Income: Annual median income per household.​
+
+Health Risk Factors:
+
+Percentage at risk for severe COVID-19 illness.​
+
+Number of non-elderly adults with pre-existing conditions.​
+
+Life Expectancy: Average life expectancy at birth.​
+
+Medicaid Expenditure: Medicaid spending as a percentage of total state expenditures.​
+
+Mask Mandate Policies:
+
+Presence or absence of legal enforcement.​
+
+Start date of public mask mandates.​
+
+Data Preprocessing
+Correlation Analysis: Identified strong negative correlations between poverty levels and life expectancy, and between life expectancy and the percentage at risk for severe COVID-19 illness. Due to multicollinearity concerns, life expectancy was excluded from further analysis.​
+
+Distribution Assessment: Variables such as population density, number of homeless individuals, and non-elderly adults with pre-existing conditions exhibited left-skewed distributions. Log transformations were applied to normalize these variables.​
+
+Results
+Three linear regression models were developed:
+
+Model 1: COVID-19 case rate as a function of poverty percentage.​
+
+Adjusted R²: 0.07​
+
+Poverty percentage showed a p-value of 0.037, indicating a modest but significant relationship.​
+
+Model 2: Expanded to include poverty percentage, log-transformed population density, unemployment rate, and log-transformed number of homeless individuals.​
+
+Adjusted R²: 0.09​
+
+Poverty percentage's significance increased (p-value: 0.007).​
+
+Unemployment rate exhibited a negative relationship with case rates.​
+
+Model 3: Comprehensive model incorporating additional variables: mask mandate presence, log-transformed pre-existing conditions, percentage at risk, Medicaid spending, and median income.​
+
+Adjusted R²: 0.40​
+
+Poverty percentage remained significant (p-value: 0.001).​
+
+Mask mandates and Medicaid spending also showed significant associations.​
+
+Discussions
+The analysis indicates that poverty-related factors, particularly the percentage of individuals living below the poverty line, are significantly associated with higher COVID-19 case rates. The inclusion of additional socioeconomic and policy variables improved the model's explanatory power, suggesting that a multifaceted approach is necessary to understand the pandemic's impact.​
+
+Interestingly, higher unemployment rates were negatively associated with case rates, potentially reflecting reduced exposure due to decreased workforce participation. The presence of mask mandates and higher Medicaid spending were linked to lower case rates, underscoring the importance of policy interventions in mitigating the spread of COVID-19.​
+
+Challenges
+Data Limitations: Variations in data reporting across states and the use of data from different years (e.g., 2018 unemployment rates) may affect the accuracy of the analysis.​
+
+Multicollinearity: Strong correlations between certain variables necessitated the exclusion of some factors to maintain model integrity.​
+
+Causality: The observational nature of the study limits the ability to draw causal inferences from the associations observed.​
+
+Future Work
+Temporal Analysis: Incorporate time-series data to assess how relationships between variables and case rates evolve over time.​
+
+Granular Data: Utilize more localized data (e.g., county or city level) to capture regional variations and provide more targeted insights.​
+
+Policy Impact Studies: Examine the effectiveness of specific policy interventions, such as mask mandates and Medicaid expansion, in controlling COVID-19 spread.​
+
+Machine Learning Models: Apply advanced modeling techniques to capture nonlinear relationships and interactions between variables.
