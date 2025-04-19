@@ -14,11 +14,15 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
   }
   
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
   }
   
   html {
@@ -31,5 +35,30 @@
   
   .dark {
     color-scheme: dark;
+  }
+  
+  /* Explicit color classes to ensure consistency */
+  .text-primary {
+    color: hsl(217, 91%, 60%) !important;
+  }
+  
+  .dark .text-primary {
+    color: hsl(217, 91%, 60%) !important;
+  }
+  
+  .bg-primary {
+    background-color: hsl(217, 91%, 60%) !important;
+  }
+  
+  .dark .bg-primary {
+    background-color: hsl(217, 91%, 60%) !important;
+  }
+  
+  .border-primary {
+    border-color: hsl(217, 91%, 60%) !important;
+  }
+  
+  .dark .border-primary {
+    border-color: hsl(217, 91%, 60%) !important;
   }
 }

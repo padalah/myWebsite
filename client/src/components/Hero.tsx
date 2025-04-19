@@ -1,11 +1,38 @@
 import { motion } from "framer-motion";
 import ProfilePicImage from "../assets/profilepic.jpg";
 import { useLocation } from "wouter";
+import { useState, useEffect } from "react";
 
 export default function Hero() {
   const [location] = useLocation();
   // Get current base path, handling both local dev and GitHub Pages
   const basePath = location.startsWith('/myWebsite') ? '/myWebsite' : '';
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  
+  useEffect(() => {
+    // Check initial dark mode
+    const checkDarkMode = () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      setIsDarkMode(isDark);
+    };
+    
+    checkDarkMode();
+    
+    // Set up observer for dark mode changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          checkDarkMode();
+        }
+      });
+    });
+    
+    observer.observe(document.documentElement, { attributes: true });
+    
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
   
   return (
     <section className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-blue-100 via-blue-50 to-emerald-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300">
@@ -35,7 +62,7 @@ export default function Hero() {
           >
             <h1 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-white mb-4">
               Hello! I am
-              <span className="text-primary dark:text-primary/90 block md:inline"> Susmita Padala</span>
+              <span className="text-primary dark:text-primary block md:inline" style={{color: 'hsl(217, 91%, 60%)'}}> Susmita Padala</span>
             </h1>
             <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 max-w-xl">
               Product leader with 5+ years of experience in APIs, UX, experimentation, and data analysis.
@@ -43,15 +70,21 @@ export default function Hero() {
             <div className="flex flex-wrap justify-center md:justify-start gap-3">
               <motion.a 
                 href={`${basePath}/#projects`}
-                className="bg-primary hover:bg-primary/90 text-white py-3 px-6 rounded-lg transition shadow-md hover:shadow-lg"
-                whileHover={{ scale: 1.05 }}
+                className="text-white py-3 px-8 rounded-lg font-medium transition shadow-md hover:shadow-lg"
+                style={{ backgroundColor: 'hsl(217, 91%, 60%)' }}
+                whileHover={{ scale: 1.05, backgroundColor: 'hsl(217, 91%, 55%)' }}
                 whileTap={{ scale: 0.95 }}
               >
                 View Projects
               </motion.a>
               <motion.a 
                 href={`${basePath}/#contact`}
-                className="bg-white dark:bg-slate-800 text-primary dark:text-primary/90 border border-primary dark:border-primary/50 py-3 px-6 rounded-lg hover:bg-primary/5 dark:hover:bg-slate-700 transition"
+                className="border-2 py-3 px-8 rounded-lg font-medium transition"
+                style={{ 
+                  backgroundColor: isDarkMode ? 'transparent' : 'white',
+                  color: isDarkMode ? 'white' : 'hsl(217, 91%, 60%)',
+                  borderColor: isDarkMode ? 'white' : 'hsl(217, 91%, 60%)'
+                }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
