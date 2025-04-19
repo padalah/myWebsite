@@ -76,18 +76,18 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 function getTagColor(color?: string) {
   switch(color) {
     case 'blue':
-      return 'bg-blue-100 dark:bg-blue-900/70 text-blue-800 dark:text-blue-300';
+      return 'bg-blue-100 dark:bg-blue-900/70 text-blue-800 dark:text-blue-200';
     case 'purple':
-      return 'bg-purple-100 dark:bg-purple-900/70 text-purple-800 dark:text-purple-300';
+      return 'bg-purple-100 dark:bg-purple-900/70 text-purple-800 dark:text-purple-200';
     case 'green':
-      return 'bg-green-100 dark:bg-green-900/70 text-green-800 dark:text-green-300';
+      return 'bg-green-100 dark:bg-green-900/70 text-green-800 dark:text-green-200';
     case 'yellow':
-      return 'bg-yellow-100 dark:bg-yellow-900/70 text-yellow-800 dark:text-yellow-300';
+      return 'bg-yellow-100 dark:bg-yellow-900/70 text-yellow-800 dark:text-yellow-200';
     case 'indigo':
-      return 'bg-indigo-100 dark:bg-indigo-900/70 text-indigo-800 dark:text-indigo-300';
+      return 'bg-indigo-100 dark:bg-indigo-900/70 text-indigo-800 dark:text-indigo-200';
     case 'red':
-      return 'bg-red-100 dark:bg-red-900/70 text-red-800 dark:text-red-300';
+      return 'bg-red-100 dark:bg-red-900/70 text-red-800 dark:text-red-200';
     default:
-      return 'bg-primary/10 dark:bg-primary/30 text-primary-800 dark:text-primary-300';
+      return 'bg-primary/10 dark:bg-primary/30 text-primary-800 dark:text-white';
   }
 }

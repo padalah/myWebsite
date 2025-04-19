@@ -70,10 +70,10 @@ export default function Header() {
         </Link>
         
         <nav className="hidden md:flex items-center space-x-6">
-          <a href="#about" className="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors font-medium">About</a>
-          <a href="#projects" className="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors font-medium">Select Projects</a>
-          <a href="#publications" className="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors font-medium">Publications</a>
-          <a href="#contact" className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-md transition-all">Contact</a>
+          <a href={`${basePath}/#about`} className="text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors font-medium">About</a>
+          <a href={`${basePath}/#projects`} className="text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors font-medium">Select Projects</a>
+          <a href={`${basePath}/#publications`} className="text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors font-medium">Publications</a>
+          <a href={`${basePath}/#contact`} className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-md transition-all">Contact</a>
           
           <motion.button
             onClick={toggleDarkMode}
@@ -111,28 +111,28 @@ export default function Header() {
       <div className={`md:hidden bg-white dark:bg-slate-900 transition-colors duration-300 ${isOpen ? "block" : "hidden"}`}>
         <div className="px-4 py-3 space-y-2">
           <a 
-            href="#about" 
-            className="block py-2 text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+            href={`${basePath}/#about`}
+            className="block py-2 text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors"
             onClick={() => setIsOpen(false)}
           >
             About
           </a>
           <a 
-            href="#projects" 
-            className="block py-2 text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+            href={`${basePath}/#projects`}
+            className="block py-2 text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors"
             onClick={() => setIsOpen(false)}
           >
             Select Projects
           </a>
           <a 
-            href="#publications" 
-            className="block py-2 text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+            href={`${basePath}/#publications`}
+            className="block py-2 text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors"
             onClick={() => setIsOpen(false)}
           >
             Publications
           </a>
           <a 
-            href="#contact" 
+            href={`${basePath}/#contact`}
             className="block py-2 text-primary dark:text-primary/90 font-medium"
             onClick={() => setIsOpen(false)}
           >

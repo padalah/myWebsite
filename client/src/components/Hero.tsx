@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import ProfilePicImage from "../assets/profilepic.jpg";
-
+import { useLocation } from "wouter";
 
 export default function Hero() {
+  const [location] = useLocation();
+  // Get current base path, handling both local dev and GitHub Pages
+  const basePath = location.startsWith('/myWebsite') ? '/myWebsite' : '';
+  
   return (
     <section className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-blue-100 via-blue-50 to-emerald-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300">
       <div className="container mx-auto px-4 max-w-7xl">
@@ -38,7 +42,7 @@ export default function Hero() {
             </p>
             <div className="flex flex-wrap justify-center md:justify-start gap-3">
               <motion.a 
-                href="#projects" 
+                href={`${basePath}/#projects`}
                 className="bg-primary hover:bg-primary/90 text-white py-3 px-6 rounded-lg transition shadow-md hover:shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -46,7 +50,7 @@ export default function Hero() {
                 View Projects
               </motion.a>
               <motion.a 
-                href="#contact" 
+                href={`${basePath}/#contact`}
                 className="bg-white dark:bg-slate-800 text-primary dark:text-primary/90 border border-primary dark:border-primary/50 py-3 px-6 rounded-lg hover:bg-primary/5 dark:hover:bg-slate-700 transition"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
