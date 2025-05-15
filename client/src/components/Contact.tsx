@@ -43,7 +43,7 @@ export default function Contact() {
                 
                 <div className="flex flex-wrap justify-center gap-6 mt-8">
                   <a 
-                    href="https://www.linkedin.com/in/susmitapadala/" 
+                    href="https://www.linkedin.com/in/susmitap/" 
                     target="_blank" 
                     rel="noopener noreferrer"
                   >
