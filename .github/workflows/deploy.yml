@@ -54,6 +54,11 @@ jobs:
           
           # Build with the GitHub Pages config
           npx vite build --config vite.config.gh-pages.js
+
+          # Copy 404.html to dist folder if it exists
+          if [ -f "public/404.html" ]; then
+            cp public/404.html dist/404.html
+          fi
           
           # Create .nojekyll file to prevent Jekyll processing
           touch dist/.nojekyll
