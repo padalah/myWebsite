@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import ProfilePicImage from "../assets/profilePicture.jpg";
+import ProfilePicImage from "../assets/profilePic2.jpg";
 import { useLocation } from "wouter";
 import { useState, useEffect } from "react";
 
