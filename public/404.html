@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    // Single Page Apps for GitHub Pages
+    // MIT License
+    // https://github.com/rafgraph/spa-github-pages
+    
+    // This script takes the current url and converts the path and query
+    // string into just a query string, and then redirects the browser
+    // to the new url with only a query string and hash fragment,
+    // e.g. https://padalah.github.io/myWebsite/projects/foo-bar →
+    // https://padalah.github.io/myWebsite/?redirect=projects/foo-bar
+    
+    // Save the pathname segments after the repo name ('myWebsite')
+    const pathSegmentsToKeep = 1; // Only keep 'myWebsite'
+    
+    // Get the repository name from the path (should be the first segment)
+    const repoName = window.location.pathname.split('/')[1];
+    
+    // Get the path after the repo name
+    const l = window.location;
+    const redirectPath = l.pathname.split('/').slice(pathSegmentsToKeep + 1).join('/');
+    
+    // If this is a direct access to a subpage, redirect to the main page with the path in a query param
+    if (redirectPath) {
+      const queryParams = l.search ? l.search + '&' : '?';
+      const redirectUrl = l.origin + '/' + repoName + queryParams + 'redirect=' + redirectPath + l.hash;
+      window.location.replace(redirectUrl);
+    } else {
+      // If it's just the 404 page for the base URL, redirect to the home page
+      window.location.replace(l.origin + '/' + repoName);
+    }
+  </script>
+</head>
+<body>
+  <h1>Redirecting...</h1>
+  <p>If you are not redirected automatically, <a id="redirect-link" href="/">click here</a>.</p>
+  
+  <script>
+    // Update the fallback link
+    document.getElementById('redirect-link').href = window.location.origin + '/' + window.location.pathname.split('/')[1];
+  </script>
+</body>
+</html>
